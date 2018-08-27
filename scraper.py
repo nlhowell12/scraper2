@@ -42,8 +42,10 @@ def find_phone(url):
 
 def making_soup_relative(url):
     soup = BeautifulSoup(url.text, 'html.parser')
+    print "HREF urls"
     for link in set(soup.find_all('a')):
         print(link.get('href'))
+    print "Img tag urls"
     for link in set(soup.find_all('img')):
         print(link.get('src'))
 

@@ -43,9 +43,9 @@ def find_phone(url):
 def making_soup_relative(url):
     soup = BeautifulSoup(url.text, 'html.parser')
     urls = []
-    for link in set(soup.find_all('a')):
+    for link in soup.find_all('a'):
         urls.append(link.get('href'))
-    for link in set(soup.find_all('img')):
+    for link in soup.find_all('img'):
         urls.append(link.get('src'))
     for link in set(urls):
         print link

@@ -42,12 +42,13 @@ def find_phone(url):
 
 def making_soup_relative(url):
     soup = BeautifulSoup(url.text, 'html.parser')
-    print "HREF urls"
+    urls = []
     for link in set(soup.find_all('a')):
-        print(link.get('href'))
-    print "Img tag urls"
+        urls.append(link.get('href'))
     for link in set(soup.find_all('img')):
-        print(link.get('src'))
+        urls.append(link.get('src'))
+    for link in set(urls):
+        print link
 
 
 def main():
